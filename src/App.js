@@ -48,7 +48,7 @@ class App extends Component {
   componentDidMount(){
     const token = localStorage.getItem("token");
     if(token){
-      fetch('https://35.224.20.131/signin', {
+      fetch('https://35.224.20.131:3000/signin', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ class App extends Component {
         .then(response => response.json())
         .then(data => {
           if (data.userId) {
-            fetch(`https://35.224.20.131/profile/${data.userId}`, {
+            fetch(`https://35.224.20.131:3000/profile/${data.userId}`, {
               method: 'get',
               headers: {
                 'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('https://35.224.20.131/imageurl', {
+      fetch('https://35.224.20.131:3000/imageurl', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -131,7 +131,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('https://35.224.20.131/image', {
+          fetch('https://35.224.20.131:3000/image', {
             method: 'put',
             headers: {
               'Content-Type': 'application/json',
