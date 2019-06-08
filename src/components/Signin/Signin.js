@@ -23,7 +23,7 @@ class Signin extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('http://161e8afd.ngrok.io/signin', {
+    fetch('https://35.224.20.131/signin', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -35,7 +35,7 @@ class Signin extends React.Component {
       .then(data => {
         if (data.userId && data.success) {
           this.saveAuthTokenInSession(data.token);
-          fetch(`http://161e8afd.ngrok.io/profile/${data.userId}`, {
+          fetch(`https://35.224.20.131/profile/${data.userId}`, {
             method: 'get',
             headers: {
               'Content-Type': 'application/json',

@@ -34,7 +34,7 @@ onSubmit = () => {
             name
         }
     }
-     fetch(`http://161e8afd.ngrok.io/profile/${this.state.id}`, {
+     fetch(`https://35.224.20.131/profile/${this.state.id}`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
