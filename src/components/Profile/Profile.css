@@ -1,0 +1,34 @@
+.profile-modal{
+    display:flex;
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.6);
+}
+
+.buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    border: none;
+    padding : 10px;
+    color:white;
+}
+button.submit{
+    background-color: blue
+}
+button.cancel{
+    background-color: red
+}
+
+.modal-close{
+    cursor:pointer;
+    font-size: 35px;
+}
