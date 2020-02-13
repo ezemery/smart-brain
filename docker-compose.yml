@@ -1,0 +1,41 @@
+version : "3.6"
+
+services:
+    backend:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./backend
+        environment:
+            POSTGRES_URI: postgres://postgres:secret@postgres:5432/smart-brain-docker
+            REDIS_URI: redis://redis:6379
+        volumes:
+            - /var/www/node_modules
+            - ./backend:/var/www   
+    frontend:
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./frontend
+        volumes:
+            - /var/www/node_modules
+            - ./frontend:/var/www
+    postgres:
+        build: ./backend/initdb
+        # Expose the default Postgres port on localhost
+        environment:
+            POSTGRES_USER: 'postgres'
+            POSTGRES_PASSWORD: 'secret'
+            POSTGRES_DB: 'smart-brain-docker'
+    redis:
+        image: redis
+    nginx:
+        restart: always
+        depends_on:
+            - frontend
+            - backend
+        ports:
+            - '3000:8080'
+        build: 
+            context: ./nginx
+            dockerfile: Dockerfile.dev
+
+

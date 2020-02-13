@@ -34,7 +34,7 @@ onSubmit = () => {
             name
         }
     }
-     fetch(`https://35.224.20.131:3000/profile/${this.state.id}`, {
+     fetch(`/api/profile/${this.state.id}`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
