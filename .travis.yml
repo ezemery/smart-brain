@@ -1,0 +1,20 @@
+sudo: required
+language: node_js
+
+services:
+    - docker
+
+before_install:
+    - docker build -t ezemery/tests -f ./frontend/Dockerfile.dev ./frontend
+
+script:
+    - docker run ezemery/tests npm test
+
+after_success:
+    - docker build -t ezemery/multi-frontend ./frontend
+    - docker build -t ezemery/multi-nginx ./nginx
+    - docker build -t ezemery/multi-backend ./backend
+    - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+    - docker push ezemery/multi-frontend
+    - docker push ezemery/multi-backend
+    - docker push ezemery/multi-nginx
