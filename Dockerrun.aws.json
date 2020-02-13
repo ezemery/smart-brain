@@ -1,0 +1,31 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
+        {
+            "name":"frontend",
+            "image": "eze09/multi-frontend",
+            "hostname":"frontend",
+            "essential":false
+        },
+        {
+            "name":"backend",
+            "image": "eze09/multi-backend",
+            "hostname":"backend",
+            "essential":false
+        },
+        {
+            "name":"nginx",
+            "image": "eze09/multi-nginx",
+            "hostname":"nginx",
+            "essential":true,
+            "portMappings": [
+                {
+                  "hostPort": 80,
+                  "containerPort": 80
+                }
+              ],
+            "links":["frontend", "backend"]
+        }
+
+    ]
+}
