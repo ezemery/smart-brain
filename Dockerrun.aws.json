@@ -5,12 +5,14 @@
             "name":"frontend",
             "image": "eze09/multi-frontend",
             "hostname":"frontend",
+            "memory": 128,
             "essential":false
         },
         {
             "name":"backend",
             "image": "eze09/multi-backend",
             "hostname":"backend",
+            "memory": 128,
             "essential":false
         },
         {
@@ -18,6 +20,7 @@
             "image": "eze09/multi-nginx",
             "hostname":"nginx",
             "essential":true,
+            "memory": 128,
             "portMappings": [
                 {
                   "hostPort": 80,
