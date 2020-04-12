@@ -30,7 +30,7 @@ services:
             - frontend
             - backend
         ports:
-            - '3000:8080'
+            - '5000:8080'
         build: 
             context: ./nginx
             dockerfile: Dockerfile.dev
