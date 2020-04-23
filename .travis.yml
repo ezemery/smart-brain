@@ -25,8 +25,8 @@ deploy:
     secret_access_key:
         secure: "$AWS_SECRET_ACCESS_KEY"
     region: "us-east-1"
-    app: "multi-docker"
-    env: "MultiDocker-env"
+    app: "multi-k8s"
+    env: "MultiK8s-env"
     bucket_name: "elasticbeanstalk-us-east-1-127772487405"
     on:
         branch: master
