@@ -1,27 +1,30 @@
 version : "3.6"
 services:
     backend:
-        build:
-            context: ./backend
+        image: eze09/multi-backend:v1
         environment:
-            POSTGRES_URI: postgres://postgres:secret@postgres:5432/smart-brain-docker
+            POSTGRES_HOST: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: secret
+            POSTGRES_DB: smart-brain-docker
+            REDIS_HOST: redis
+            REDIS_PORT: '6379'
             REDIS_URI: redis://redis:6379
         volumes:
             - /var/www/node_modules
             - ./backend:/var/www   
     frontend:
-        build: 
-            context: ./frontend
+        image: eze09/multi-frontend
         volumes:
             - /var/www/node_modules
             - ./frontend:/var/www
     postgres:
-        build: ./backend/initdb
-        # Expose the default Postgres port on localhost
+        image: eze09/postgres:v1
         environment:
-            POSTGRES_USER: 'postgres'
-            POSTGRES_PASSWORD: 'secret'
-            POSTGRES_DB: 'smart-brain-docker'
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: secret
+            POSTGRES_DB: smart-brain-docker
+        # Expose the default Postgres port on localhost
     redis:
         image: redis
     nginx:
@@ -34,5 +37,8 @@ services:
         build: 
             context: ./nginx
             dockerfile: Dockerfile.dev
+# secrets:
+#     my_secret:
+#         file: ./password.txt
 
 
