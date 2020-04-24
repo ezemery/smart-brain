@@ -18,15 +18,12 @@ after_success:
     - docker push eze09/multi-frontend
     - docker push eze09/multi-backend
     - docker push eze09/multi-nginx
+    
 deploy:
     provider: elasticbeanstalk
-    access_key_id:
-        secure: $AWS_ACCESS_KEY_ID
+    access_key_id: AKIAR3P6VN3W23BFHZZ3
     secret_access_key:
-        secure: $AWS_SECRET_ACCESS_KEY
-    region: "us-east-1"
-    app: "multi-k8s-ezemery"
-    env: "MultiK8sEzemery-env"
-    bucket_name: "elasticbeanstalk-us-east-1-127772487405"
-    on:
-        branch: master
+        secure: lSKRIGplyOYnMTDIDUFdxlu0eCVROGXKNC6UcJ2ddVTaFrs1H3B3XHi8UHKMehUE4gGYbKv1FjT14FyVRnEITYQy+CteOpI7A0UtRSJPrqSdMHtHJqKmzKOg9n56fNLOWVx6W5KS9QMqjrHX0cgArSK+AjhXjBaPfP8nCe0UYa21DOswbHPU6EqNTAqeQSdQiK4C+5FeG/B2LV8EtbY7lm+53DjCiy+QIC9rmFvyooEGDdEte2v9ITzDDRrnIpk+ZfWKjJ8v2mzd+jhTZOHTJEQ4cfqL2XDqZBKx0nlSxHJPLmtA8qxUHQ1X3kBCc0vJl+/Fgjd6/ObJh0+s41rJtgqQyHpv+ZW84L/Mt9Ph/Z0iYpzQDTikypR5ExzKG4y6/BdMyJvg6+CtPhdfoGEo6zympW+8f6daunVaubQrkrYaXcMz89n5ZZKF7PhjOJiJfpH9itdi+kisfUPwL/ZQ5Ae+i6VEO3Ovf4o0AztyRnH/f3RJOWr7YpYwbUuxUzBcPYFKQYAqPd+qRm3+PHKtMsQygO57jZS0HGk7K1+ufctYlm5b019dU7Z+nO2ys4IiyU5vZ5iimPi5/pqPeHI88BM8w8wtz8PyMEV5X+sA9Y5Fzy2dLmCorjcMYp8GokDvPok6m3+/dzLLhVHeT1midLZOKIB1JL/p3264ssBFSPs=
+    region: us-east-1
+    app: multi-k8s-ezemery
+    env: MultiK8sEzemery-env
