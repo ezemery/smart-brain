@@ -21,9 +21,9 @@ after_success:
 deploy:
     provider: elasticbeanstalk
     access_key_id:
-        secure: "A6yzhOSYFY7DFXve98I+UOcAZLJFTWBLJdBqeUFdETOkQNjOYMerN9ymkTge5Pv4zz0/mTKfkB6lnf8m+NSsvbqChm+r3ypbqmj9XRUTY6OOLaTqU6iMxUiVVEg1PyrsvEtQdV/MT0aNTJch4toMr9qSH+wpOugiQ5QSSN7YJ9V3wVtAdxJF4kq4CTNA/WAPslwYyYgiysHtkKgfVsiSwvz1XjfMQlh1dODNjxotJCYrRjGDcZkSd9KtyUUXCdaMGDr4zkKxZMKv3gMa/hfS95bnb4So1/LgSG8PFDHJnF4zq0iUR2xGeEsgg1+Bb1n5oY01ru6FmR6eWsGzpoZE7czoZ3FnOqVbQxjBq/PSTMqIPGK+7xIT6x37ClDGhJ+08QhlIQ+OM1wPLZECYYH8yVWW/Atw8unbOhEu2JfNgy5/onq6QsnEwRw4Uhrd6ymEto/9mJZcssgHBy7zixhtZfJErgbTqan13oBkWA7/bhPL4AAZjIbxRhBAIs0Kf0l5cT6/Lx9RPIzkSjJ9us/We8eRkr2HsNceoZlyLJBNwGqRy20XjzSGvJKzlIrjahd+XWA2H9xUz8h4AS3ndj6LuLGVHCjOUzpEDOfPyVnykm/M69RlXInAhb08qNoCoQPUzc6QcDRnfA+tCjwhE5Zc/zVXf7M/1Myxmks9r4TSZx0="
+        secure: "$AWS_ACCESS_KEY_ID"
     secret_access_key:
-        secure: "fPa6MuGUbp7IcSAKtOpf6+H3uqQJ2K5YWtxLQ3QhUcRbRqRMkNcw0XuwFpvMzhEma0mTQCj5+Ce0MLJfKwnhHPPKrF6EvJ1COyzfDkbw4uNCrjJ1V+0ws6jfiVwJhbJMMPpL0zyWyHuCElnJJK0TRfFAr0IPntUdfuJUOEt4Fn38xgqu4ATnEG6TugY9sJ4NNDdF+XwsamWvfCM77RA+jMUh7QpEZ2SiO621LpKQ+HEXMGnysjZh14c+75VJkbv/9QFCO/p7gbs9b4FJQNNNP89ZmiMw/C3C4X0V4SaUg91dviJ6NgLxc7w1UKukGFqoWhHxbDQYxysn+E8cq9Ls1SoRsgZMWCR7xH88YoZr7VkLlqxv3f/PR13a3MpO6NqK8fcuHd9xlnVXecQC4iQhrRgQl1sLnn9NULJxIlIdFepHT5tOV3fJ1PbS7ubljn2keWKTxI9l5knmvoldiFG6LjFONwnUKysx6CTrEOraf39pz4oVptojYpsgvAKOi2HvJ9G8aEW/0aU+M+NYyWKRrO61CXEqaw0o58LIt68oy1NAW+QYHhnpqpTVkqT93a9yOCCDvj0iCN6OBlk/wCazx35cLixumBoyRxAhi5IVbNIIivz/JM9mxMfQ/Xo47J6yj1YKjxlKkCLWy7XswC5DQ2DEFJGwMZtrR2xKdVrQwog="
+        secure: "$AWS_SECRET_ACCESS_KEY"
     region: "us-east-1"
     app: "multi-k8s-ezemery"
     env: "MultiK8sEzemery-env"
