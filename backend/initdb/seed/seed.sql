@@ -4,3 +4,10 @@ INSERT INTO users (name, email, entries, joined) VALUES ('Emmanuel', 'ezechukwu1
 INSERT INTO login (hash, email) VALUES ('$2a$10$0m86eR313lbuh6mtbKG4COpndBF4QzPal76SHxa6O8hqXiEbTATmG', 'ezechukwu1995@gmail.com');
 
 COMMIT;
+
+
+
+10.128.0.2
+34.66.137.12
+
+35.223.159.85

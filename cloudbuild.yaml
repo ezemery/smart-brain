@@ -1,0 +1,20 @@
+steps:
+    #builds the docker image
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ["build", "-t", "gcr.io/smart-brain-242707/multi-frontend:$SHORT_SHA", './frontend']
+
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ["build", "-t", "gcr.io/smart-brain-242707/multi-backend:$SHORT_SHA", './backend']
+
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ["push", "gcr.io/smart-brain-242707/multi-frontend:$SHORT_SHA"]
+
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ["push", "gcr.io/smart-brain-242707/multi-backend:$SHORT_SHA"]
+
+    - name: 'gcr.io/cloud-builders/gke-deploy'
+      args:
+        - run
+        - --filename=k8s
+        - --location=us-central1-a
+        - --cluster=smart-brain
