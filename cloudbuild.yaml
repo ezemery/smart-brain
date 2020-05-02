@@ -1,18 +1,24 @@
 steps:
     #builds the docker image
     - name: 'gcr.io/cloud-builders/docker'
-      args: ["build", "-t", "gcr.io/smart-brain-242707/multi-frontend:$SHORT_SHA", './frontend']
+      args: ["build", "-t", "gcr.io/smart-brain-242707/multi-frontend:$SHORT_SHA", "-t", "gcr.io/smart-brain-242707/multi-frontend:latest", './frontend']
 
     - name: 'gcr.io/cloud-builders/docker'
-      args: ["build", "-t", "gcr.io/smart-brain-242707/multi-backend:$SHORT_SHA", './backend']
+      args: ["build", "-t", "gcr.io/smart-brain-242707/multi-backend:$SHORT_SHA","-t", "gcr.io/smart-brain-242707/multi-backend:latest", './backend']
 
     - name: 'gcr.io/cloud-builders/docker'
       args: ["push", "gcr.io/smart-brain-242707/multi-frontend:$SHORT_SHA"]
 
     - name: 'gcr.io/cloud-builders/docker'
+      args: ["push", "gcr.io/smart-brain-242707/multi-frontend:latest"]
+
+    - name: 'gcr.io/cloud-builders/docker'
       args: ["push", "gcr.io/smart-brain-242707/multi-backend:$SHORT_SHA"]
 
-    - name: 'gcr.io/cloud-builders/gke-deploy'
+    - name: 'gcr.io/cloud-builders/docker'
+      args: ["push", "gcr.io/smart-brain-242707/multi-backend:latest"]
+
+    - name: 'gcr.io/cloud-builders/gke-deploy:stable'
       args:
         - run
         - --filename=k8s
