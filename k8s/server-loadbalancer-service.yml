@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: server-clusterip-service
+    name: server-loadbalancer-service
 spec:
-    type: ClusterIP
+    type: LoadBalancer
     selector:
         component: server
     ports:
