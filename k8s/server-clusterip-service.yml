@@ -3,7 +3,7 @@ kind: Service
 metadata:
     name: server-loadbalancer-service
 spec:
-    type: LoadBalancer
+    type: ClusterIP
     selector:
         component: server
     ports:

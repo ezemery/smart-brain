@@ -4,15 +4,16 @@ metadata:
     name: ingress-service
     annotations:
         nginx.ingress.kubernetes.io/rewrite-target: /$1
+        kubernetes.io/ingress.class: "nginx"
 spec:
     rules:
     - http:
         paths:
         - path: /?(.*)
           backend:
-            serviceName: client-loadbalancer-service
+            serviceName: client-clusterip-service
             servicePort: 3000
         - path: /api/?(.*)
           backend:
-            serviceName: server-loadbalancer-service
+            serviceName: server-clusterip-service
             servicePort: 3001
